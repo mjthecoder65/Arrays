@@ -19,6 +19,9 @@ def findPeakElement(arr):
 ```
 
 ```python
+# Approach 2
+# Time complexity: O(logN)
+# Space complexity: O(logN)
 def findPeakElement(arr : List[int]) -> int:
     left = 0
     right = len(arr) - 1
