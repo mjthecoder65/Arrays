@@ -1,8 +1,7 @@
 def findPeakElement(arr):
-    if len(arr) == 0:
-        return -1
-    if len(arr) == 1:
-        return 0
+    if len(arr) == 0: return -1
+    if len(arr) == 1: return 0
+    
     for i in range(len(arr)):
         if i == len(arr) - 1:
             if arr[i] > arr[i-1]:
