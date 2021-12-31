@@ -8,6 +8,7 @@ If the array contains multiple peaks, return the index to any of the peaks.
 You may imagine that nums[-1] = nums[n] = -∞.
 
 ```python
+# Approach 1
 def findPeakElement(arr):
     for i in range(len(arr) - 1):
         if arr[i] > arr[i+1]:
