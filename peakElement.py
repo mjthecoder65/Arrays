@@ -21,6 +21,7 @@ def findPeakElement(arr : List[int]) -> int:
     return left
 
 # Approach 3 (Recursive solution for approach 2)
+
 def findIndex(arr, left, right):
     if (left == right): return left
     mid = (left + right) // 2
