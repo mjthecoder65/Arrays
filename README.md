@@ -138,3 +138,57 @@ def moveZeroes(arr : list(int)):
             arr[i], arr[j] = arr[j], arr[i]
             j += 1
 ```
+
+# Problem 4 (Move all negative elements to the right)
+
+Given an unsorted array arr[] of size N having both negative and positive integers. The task is place all negative element at the end of array without changing the order of positive element and negative element.
+
+```
+
+Example 1
+Input :
+N = 8
+arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
+Output :
+1  3  2  11  6  -1  -7  -5
+
+Example 2
+Input :
+N=8
+arr[] = {-5, 7, -3, -4, 9, 10, -1, 11}
+Output :
+7  9  10  11  -5  -3  -4  -1
+
+```
+
+```python
+# Approach 1
+# Time complexity: O(N)
+# Space complexity: O(N)
+def moveZeroes(arr: List[int]):
+    zeros = []
+    nonzeros = []
+
+    for element in arr:
+        if element == 0:
+            zeros.append(element)
+        else:
+            nonzeros.append(element)
+    result = nonzeros + zeros
+    for i in range(len(arr)):
+        arr[i] = result[i]
+```
+
+```python
+# Approach 1
+# Time complexity: O(N)
+# Space complexity: O(1)
+def moveZeroes(arr: List[int]):
+    nonzerosIndex = 0
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[nonzerosIndex] = arr[i]
+            nonzerosIndex += 1
+    for i in range(nonzerosIndex, len(arr)):
+        arr[i] = 0
+```
