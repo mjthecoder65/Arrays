@@ -192,3 +192,50 @@ def moveZeroes(arr: List[int]):
     for i in range(nonzerosIndex, len(arr)):
         arr[i] = 0
 ```
+
+# Problem 5 (Kth smallet element in array)
+
+Given an array arr[] and an integer K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
+
+```
+Input:
+N = 6
+arr[] = 7 10 4 3 20 15
+K = 3
+Output : 7
+Explanation :
+3rd smallest element in the given
+array is 7
+```
+
+```python
+# Approach 1
+# Time complexity : O(nlogn)
+def kthSmallest(arr: list(int), k : int):
+    arr = sorted(arr)
+    if k <= len(arr):
+        return arr[k - 1]
+```
+
+```python
+# Approach 2
+# Time complexity : O(nlogn)
+def kthSmallest(arr, k):
+    smallest = arr[0]
+    largest = arr[0]
+
+    store = {}
+    for key in arr:
+        if key in store: store[key] += 1
+        else: store[key] = 1
+
+    for element in arr:
+        if element < smallest: smallest = element
+        elif element > largest: largest = element
+
+    count = 1
+    for element in range(smallest, largest):
+        if element in store:
+            if count == k: return element
+            else: count += store[element]
+```
