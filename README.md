@@ -393,3 +393,45 @@ def removeDuplicates(nums: List[int]) -> int:
     return index
 
 ```
+
+# Problem 8 (Kth largest element in an array)
+
+Given an integer array nums and an integer k, return the kth largest element in the array.
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+```
+Example 1
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+
+Example 2
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+```
+
+```python
+# Approach 1 : Sorting elements
+# Time complexity: O(nlogn)
+# Space complexity: O(n)
+def findKthLargest(arr : list(int), k: int) ->int:
+    arr = sorted(arr, reverse=True)
+    if k <= len(arr):
+        return arr[k-1]
+
+#Approach 2:
+# Time complexity: O(logn)
+# Space complexity: O(1)
+
+from heapq import heapify, heappop
+
+def findKthLargest(arr, k):
+    arr = [-x for x in nums]
+    heapify(arr)
+    kth_largest = None
+
+    while k > 0:
+        kth_largest = -heappop(arr)
+        k -= 1
+    return kth_largest
+
+```
